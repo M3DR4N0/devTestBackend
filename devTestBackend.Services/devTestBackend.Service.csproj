@@ -6,4 +6,9 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\devTestBackend.Contract.Repository\devTestBackend.Contract.Repository.csproj" />
+    <ProjectReference Include="..\devTestBackend.Contract.Service\devTestBackend.Contract.Service.csproj" />
+  </ItemGroup>
+
 </Project>

@@ -5,6 +5,12 @@ namespace devTestBackend.Contract.Service
 {
     public interface IAnnouncementService
     {
-        Task<IGetAllAnnouncementResponse> GetAllAnnouncementAsync(GetAllAnnouncementRequest request); 
+        Task<IGetAllAnnouncementResponse> GetAllAnnouncementAsync(); 
+        Task<IGetAnnouncementResponse> GetAnnouncementAsync(int id); 
+        Task<IInsertAnnouncementResponse> InsertAnnouncementAsync(InsertAnnouncementRequest request);
+        Task<IInsertAnnouncementResponse> GenerateAnnouncementsAsync(IEnumerable<InsertAnnouncementRequest> request); 
+        Task<IUpdateAnnouncementResponse> UpdateAnnouncementAsync(int id, UpdateAnnouncementRequest request);  
+        Task<IDeleteAnnouncementResponse> DeleteAnnouncementAsync(int id);
+        Task<IGetAllAnnouncementResponse> GetByDescendingDateOrderAsync(); 
     }
 }

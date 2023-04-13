@@ -4,18 +4,18 @@
 
 namespace devTestBackend.Entities.Responses.Announcements
 {
-    public interface IGetAllAnnouncementResponse {}
+    public interface IGetAnnouncementResponse {}
 
-    public class GetAllAnnouncementResponse : IGetAllAnnouncementResponse
+    public class GetAnnouncementResponse : IGetAnnouncementResponse
     {
-        public abstract class Base<T> : GetAllAnnouncementResponse where T : new()
+        public abstract class Base<T> : GetAnnouncementResponse where T : new()
         {
             public static T Instance => new();
         }
 
-        public sealed class Success : Base<Success>
+        public sealed class Success : Base<Success> 
         {
-            public IEnumerable<Announcement> Announcements { get; set; } 
+            public Announcement Announcement { get; set; } 
         }
 
         public sealed class ValidationError : Base<ValidationError>

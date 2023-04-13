@@ -3,14 +3,14 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31903.59
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "devTestBackend", "devTestBackend\devTestBackend.csproj", "{47B66C28-7787-43E9-8E79-36EE8F011145}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "devTestBackend", "devTestBackend\devTestBackend.csproj", "{47B66C28-7787-43E9-8E79-36EE8F011145}"
 	ProjectSection(ProjectDependencies) = postProject
 		{2E170794-1FB0-44F6-BC9A-633AB2ECA47A} = {2E170794-1FB0-44F6-BC9A-633AB2ECA47A}
 		{3AF77340-CE94-407C-B9AE-924D6F9E2E55} = {3AF77340-CE94-407C-B9AE-924D6F9E2E55}
 		{89B514B8-329A-48BB-BDBA-BBB7EC3E0D28} = {89B514B8-329A-48BB-BDBA-BBB7EC3E0D28}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "devTestBackend.Service", "devTestBackend.Services\devTestBackend.Service.csproj", "{3AF77340-CE94-407C-B9AE-924D6F9E2E55}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "devTestBackend.Service", "devTestBackend.Services\devTestBackend.Service.csproj", "{3AF77340-CE94-407C-B9AE-924D6F9E2E55}"
 	ProjectSection(ProjectDependencies) = postProject
 		{01422FD2-39BA-44F3-9C96-8AAC9EF18701} = {01422FD2-39BA-44F3-9C96-8AAC9EF18701}
 		{2E170794-1FB0-44F6-BC9A-633AB2ECA47A} = {2E170794-1FB0-44F6-BC9A-633AB2ECA47A}
@@ -18,24 +18,26 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "devTestBackend.Service", "d
 		{89B514B8-329A-48BB-BDBA-BBB7EC3E0D28} = {89B514B8-329A-48BB-BDBA-BBB7EC3E0D28}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "devTestBackend.Repository", "devTestBackend.Repository\devTestBackend.Repository.csproj", "{89B514B8-329A-48BB-BDBA-BBB7EC3E0D28}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "devTestBackend.Repository", "devTestBackend.Repository\devTestBackend.Repository.csproj", "{89B514B8-329A-48BB-BDBA-BBB7EC3E0D28}"
 	ProjectSection(ProjectDependencies) = postProject
 		{01422FD2-39BA-44F3-9C96-8AAC9EF18701} = {01422FD2-39BA-44F3-9C96-8AAC9EF18701}
 		{6E28BF81-092C-4BE1-AB33-12638E0F78CA} = {6E28BF81-092C-4BE1-AB33-12638E0F78CA}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "devTestBackend.Entities", "devTestBackend.Entities\devTestBackend.Entities.csproj", "{01422FD2-39BA-44F3-9C96-8AAC9EF18701}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "devTestBackend.Entities", "devTestBackend.Entities\devTestBackend.Entities.csproj", "{01422FD2-39BA-44F3-9C96-8AAC9EF18701}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "devTestBackend.Contract.Repository", "devTestBackend.Contract.Repository\devTestBackend.Contract.Repository.csproj", "{6E28BF81-092C-4BE1-AB33-12638E0F78CA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "devTestBackend.Contract.Repository", "devTestBackend.Contract.Repository\devTestBackend.Contract.Repository.csproj", "{6E28BF81-092C-4BE1-AB33-12638E0F78CA}"
 	ProjectSection(ProjectDependencies) = postProject
 		{01422FD2-39BA-44F3-9C96-8AAC9EF18701} = {01422FD2-39BA-44F3-9C96-8AAC9EF18701}
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "devTestBackend.Contract.Service", "devTestBackend.Contract.Service\devTestBackend.Contract.Service.csproj", "{2E170794-1FB0-44F6-BC9A-633AB2ECA47A}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "devTestBackend.Contract.Service", "devTestBackend.Contract.Service\devTestBackend.Contract.Service.csproj", "{2E170794-1FB0-44F6-BC9A-633AB2ECA47A}"
 	ProjectSection(ProjectDependencies) = postProject
 		{01422FD2-39BA-44F3-9C96-8AAC9EF18701} = {01422FD2-39BA-44F3-9C96-8AAC9EF18701}
 		{6E28BF81-092C-4BE1-AB33-12638E0F78CA} = {6E28BF81-092C-4BE1-AB33-12638E0F78CA}
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "devTestBackend.Providers", "devTestBackend.Providers\devTestBackend.Providers.csproj", "{D77D982A-271E-486B-9A42-07769A5CA785}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -67,6 +69,10 @@ Global
 		{2E170794-1FB0-44F6-BC9A-633AB2ECA47A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2E170794-1FB0-44F6-BC9A-633AB2ECA47A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2E170794-1FB0-44F6-BC9A-633AB2ECA47A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D77D982A-271E-486B-9A42-07769A5CA785}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D77D982A-271E-486B-9A42-07769A5CA785}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D77D982A-271E-486B-9A42-07769A5CA785}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D77D982A-271E-486B-9A42-07769A5CA785}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

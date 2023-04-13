@@ -21,11 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="Controllers\" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\devTestBackend.Contract.Service\devTestBackend.Contract.Service.csproj" />
+    <ProjectReference Include="..\devTestBackend.Providers\devTestBackend.Providers.csproj" />
     <ProjectReference Include="..\devTestBackend.Repository\devTestBackend.Repository.csproj" />
     <ProjectReference Include="..\devTestBackend.Services\devTestBackend.Service.csproj" />
   </ItemGroup>

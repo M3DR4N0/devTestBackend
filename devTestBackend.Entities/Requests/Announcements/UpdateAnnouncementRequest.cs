@@ -1,8 +1,8 @@
 ﻿#nullable disable
 
-namespace devTestBackend.Entities.ViewModels.Announcements
+namespace devTestBackend.Entities.Requests.Announcements
 {
-    public class AnnouncementViewModel
+    public class UpdateAnnouncementRequest 
     {
         public string Link { get; set; }
         public string Title { get; set; }

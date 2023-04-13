@@ -41,6 +41,12 @@ namespace devTestBackend.Repository
             await _context.SaveChangesAsync().ConfigureAwait(false);
         }
 
+        public async Task InsertInRangeAsync(IEnumerable<T> entity) 
+        {
+            await Entity.AddRangeAsync(entity).ConfigureAwait(false);
+            await _context.SaveChangesAsync().ConfigureAwait(false);
+        }
+
         public async Task UpdateAsync(T entity)
         {
             Entity.Attach(entity);

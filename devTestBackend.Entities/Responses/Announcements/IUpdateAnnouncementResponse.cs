@@ -1,21 +1,19 @@
-﻿using devTestBackend.Entities.Models;
-
-#nullable disable
+﻿#nullable disable
 
 namespace devTestBackend.Entities.Responses.Announcements
 {
-    public interface IGetAllAnnouncementResponse {}
+    public interface IUpdateAnnouncementResponse { }
 
-    public class GetAllAnnouncementResponse : IGetAllAnnouncementResponse
+    public class UpdateAnnouncementResponse : IUpdateAnnouncementResponse
     {
-        public abstract class Base<T> : GetAllAnnouncementResponse where T : new()
+        public abstract class Base<T> : UpdateAnnouncementResponse where T : new()
         {
             public static T Instance => new();
         }
 
         public sealed class Success : Base<Success>
         {
-            public IEnumerable<Announcement> Announcements { get; set; } 
+            public string Message { get; set; } 
         }
 
         public sealed class ValidationError : Base<ValidationError>

@@ -1,6 +1,11 @@
+using devTestBackend.Contract.Repository;
+using devTestBackend.Contract.Service;
 using devTestBackend.Entities.Data;
 using devTestBackend.Repository;
+using devTestBackend.Service.Announcements;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 
 internal class Program
 {
@@ -8,14 +13,23 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
+        builder.Services.AddDbContext<DevTestBackendContext>(options =>
+           options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+
         foreach (var repoType in typeof(GenericRepository<>).Assembly.ExportedTypes.Where(x => !x.IsGenericType))
         {
             var implementationType = repoType.GetInterfaces().FirstOrDefault(x => !x.IsGenericType);
             builder.Services.AddScoped(implementationType!, repoType);
         }
 
-        builder.Services.AddDbContext<DevTestBackendContext>(options =>
-           options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+        builder.Services.AddScoped<AnnouncementInnerService>();
+        builder.Services.AddScoped<IAnnouncementService>(provider =>
+        {
+            var inner = provider.GetService<AnnouncementInnerService>()!;
+            var validation = new AnnouncementValidationService(inner, provider.GetService<IAnnouncementRepository>()!);
+
+            return new AnnouncementErrorService(validation);
+        });
 
         // Add services to the container.
 

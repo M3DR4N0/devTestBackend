@@ -1,11 +1,15 @@
 using devTestBackend.Contract.Repository;
 using devTestBackend.Contract.Service;
 using devTestBackend.Entities.Data;
+using devTestBackend.Entities.Structs;
+using devTestBackend.Helper;
 using devTestBackend.Repository;
 using devTestBackend.Service.Announcements;
-using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel;
 using Microsoft.Extensions.DependencyInjection;
-using System;
+using System.Reflection;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory.Model;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 internal class Program
 {
@@ -13,23 +17,9 @@ internal class Program
     {
         var builder = WebApplication.CreateBuilder(args);
 
-        builder.Services.AddDbContext<DevTestBackendContext>(options =>
-           options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
+        builder.Services.AddDbContext<DevTestBackendContext>();
 
-        foreach (var repoType in typeof(GenericRepository<>).Assembly.ExportedTypes.Where(x => !x.IsGenericType))
-        {
-            var implementationType = repoType.GetInterfaces().FirstOrDefault(x => !x.IsGenericType);
-            builder.Services.AddScoped(implementationType!, repoType);
-        }
-
-        builder.Services.AddScoped<AnnouncementInnerService>();
-        builder.Services.AddScoped<IAnnouncementService>(provider =>
-        {
-            var inner = provider.GetService<AnnouncementInnerService>()!;
-            var validation = new AnnouncementValidationService(inner, provider.GetService<IAnnouncementRepository>()!);
-
-            return new AnnouncementErrorService(validation);
-        });
+        builder.Services.AddDecorators();
 
         // Add services to the container.
 

@@ -2,8 +2,8 @@
 using devTestBackend.Entities.Responses.Announcements;
 
 namespace devTestBackend.Contract.Service
-{
-    public interface IAnnouncementService 
+{ 
+    public interface IUserService
     {
         Task<IGetAllAnnouncementResponse> GetAllAnnouncementAsync(); 
         Task<IGetAnnouncementResponse> GetAnnouncementAsync(int id); 

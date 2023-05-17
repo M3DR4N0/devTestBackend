@@ -1,17 +1,25 @@
 ﻿using devTestBackend.Entities.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+
+#nullable disable
 
 namespace devTestBackend.Entities.Data
 {
     public partial class DevTestBackendContext : DbContext
     {
+        private readonly IConfigurationRoot _configuration; 
+
         public DevTestBackendContext()
-        { 
-        } 
+        {
+            _configuration = new ConfigurationBuilder()
+                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
+                .Build();
+        }
 
         public DevTestBackendContext(DbContextOptions<DevTestBackendContext> options)
             : base(options)
-        {          
+        {
         }
 
         public virtual DbSet<Announcement> Announcements { get; set; }
@@ -20,7 +28,7 @@ namespace devTestBackend.Entities.Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-                optionsBuilder.UseSqlServer("Data Source=DESKTOP-EK7QMDK;Initial Catalog=DevTestBackend;Integrated Security=True;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False");
+                optionsBuilder.UseSqlServer(_configuration.GetConnectionString("DefaultConnection"));           
             }
         }
 
